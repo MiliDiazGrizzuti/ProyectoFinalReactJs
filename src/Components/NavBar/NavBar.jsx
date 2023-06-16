@@ -1,17 +1,20 @@
 import React from "react";
 import CartWidget from "./CartWidget/CartWidget";
+import { NavLink, Link } from "react-router-dom";
 
 const NavBar = () => {
     return (
         <nav className="Nav-Bar">
-            <h3 className="Tittle-NavBar">PINKYS SHOWROOM</h3>
-            <div className="div-navbar">
-                <button className="btn-navbar">Indumentaria</button>
-                <button className="btn-navbar">Accesorios</button>
-                <button className="btn-navbar">Home Deco</button>
-                <button className="btn-navbar">Todo para el mate</button>
-                <button className="btn-navbar">Preguntas frecuentes</button>
-                <button className="btn-navbar">Contacto</button>
+            <Link to='/'>
+                <h3 className="Tittle-NavBar">PINKYS SHOWROOM</h3>
+            </Link>
+            <div className="categories">
+                <NavLink to={'/category/indumentaria'} className={({ isActive }) => isActive ? "ActiveOption" : "Option"}> Indumentaria </NavLink>
+                <NavLink to={'/category/accesorios'} className={({ isActive }) => isActive ? "ActiveOption" : "Option"}> Accesorios </NavLink>
+                <NavLink to={'/category/homedeco'} className={({ isActive }) => isActive ? "ActiveOption" : "Option"}> Home Deco </NavLink>
+                <NavLink to={'/category/mate'} className={({ isActive }) => isActive ? "ActiveOption" : "Option"}> Todo para el mate </NavLink>
+                <NavLink to={'/category/preguntas'} className={({ isActive }) => isActive ? "ActiveOption" : "Option"}> Preguntas frecuentes </NavLink>
+                <NavLink to={'/category/contacto'} className={({ isActive }) => isActive ? "ActiveOption" : "Option"}> Contacto </NavLink>
             </div>
             <CartWidget />
 

@@ -1,19 +1,22 @@
 import { useState, useEffect } from 'react';
-import { getProductsById } from '../../Productos';
+import { getProductsByIdCategory } from '../../Productos';
 import ItemDetail from '../ItemDetail/ItemDetail';
+import { useParams } from 'react-router-dom'
 
 const ItemDetailContainer = () => {
     const [product, setProduct] = useState(null)
 
+    const { itemId } = useParams()
+
     useEffect(() => {
-        getProductsById('1')
+        getProductsByIdCategory(itemId)
             .then(response => {
                 setProduct(response)
             })
             .catch(error => {
                 console.log(error)
             })
-    }, [])
+    }, [itemId])
 
     return(
         <div className='ItemDetailContainer'>
