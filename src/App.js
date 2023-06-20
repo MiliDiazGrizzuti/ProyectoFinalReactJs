@@ -16,11 +16,6 @@ function App() {
           <Route path='/category/:categoryId' element={<ItemListContainer />}/>
           <Route path='/item/:itemId' element={<ItemDetailContainer />}/>
           <Route path='*' element={<h1>404 NOT FOUND</h1>}/>
-
-          <ItemListContainer greeting={"Bienvenidos a Pinkys Showroom"}/>
-
-          <ItemCount initial={1} stock= {50} onAdd={(quantity) => console.log("Cantidad agregada", quantity)}/>
-
         </Routes>
       </BrowserRouter>
     </div>

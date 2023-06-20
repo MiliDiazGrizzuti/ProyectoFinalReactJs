@@ -43,11 +43,3 @@ export const getProductsByIdCategory = (productId) => {
         }, 500)
     })
 }
-
-// export const getProductsById = (productId) => {
-//     return new Promise((resolve) => {
-//         setTimeout(() => {
-//             resolve(products.find(prod => prod.id === productId))
-//         }, 500)
-//     })
-// }
