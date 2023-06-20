@@ -1,0 +1,9 @@
+.itemlistcontainer {
+    display: flex;
+    flex-direction: column;
+}
+
+.greeting {
+    display: flex;
+    align-self: center;
+}

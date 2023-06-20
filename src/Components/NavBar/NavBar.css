@@ -1,0 +1,32 @@
+.cart-icon {
+    width: 1.5rem;
+}
+
+.logo {
+    text-decoration: none;
+}
+
+.Nav-Bar {
+    background-color: rgb(174, 75, 75);
+    padding: 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.categories {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.active {
+    border-radius: 15px;
+    background-color: rgb(205, 182, 193);
+    width: 110px;
+    height: 40px;
+    margin: 10px;
+    font-weight: bolder;
+}
+
+/* No se por qué el active no lo lee, antes del NavLink estaba todo perfecto */

@@ -1,0 +1,25 @@
+.CardItem {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.ItemImg {
+    width: 300px;
+}
+
+.precio-stock {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.precio-stock p {
+    margin-bottom: 5px;
+}
+
+.ItemFooter {
+    padding: 15px;
+}

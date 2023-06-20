@@ -3,10 +3,10 @@ const products = [
         id: '1',
         name: 'Vestido Paris',
         price: 12000,
-        category: 'indumentaria',
+        category: 'Indumentaria',
         img: '../Imagenes/Vestido.jpeg',
         stock: 15,
-        despription: 'Vestido de lino'
+        description: 'Vestido de lino'
     },
     {
         id: '2',
@@ -15,7 +15,7 @@ const products = [
         category: 'Accesorios',
         img: '../Imagenes/Gorra.jpeg',
         stock: 22,
-        despription: 'Gorra beige'
+        description: 'Gorra beige'
     },
     {
         id: '3',
@@ -24,7 +24,7 @@ const products = [
         category: 'Home Deco',
         img: '../Imagenes/Mantel.jpeg',
         stock: 10,
-        despription: 'Mantel de lino'
+        description: 'Mantel de lino'
     },
 ]
 
@@ -39,7 +39,7 @@ export const getProducts = () => {
 export const getProductsByIdCategory = (productId) => {
     return new Promise((resolve) => {
         setTimeout(() => {
-            resolve(products.find(prod => prod.id === productId))
+           resolve(products.find(prod => prod.id === productId))
         }, 500)
     })
 }
