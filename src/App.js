@@ -10,6 +10,7 @@ import ItemDetailContainer from './Components/ItemDetailContainer/ItemDetailCont
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { CartProvider } from './Context/CartContext';
 import Cart from './Components/Cart/Cart';
+import Checkout from './Components/Checkout/Checkout';
 
 function App() {
   return (
@@ -18,10 +19,11 @@ function App() {
         <CartProvider>
           <NavBar />
           <Routes>
-            <Route path='/' element={<ItemListContainer/>}/>
+            <Route path='/' element={<ItemListContainer greeting={'Todos nuestros productos'}/>}/>
             <Route path='/category/:categoryId' element={<ItemListContainer greeting={"Productos por categoría"}/>}/>
             <Route path='/item/:itemId' element={<ItemDetailContainer />}/>
             <Route path='/cart' element={<Cart />} />
+            <Route path='/checkout' element={<Checkout />} />
             <Route path='*' element={<h1>404 NOT FOUND</h1>}/>
           </Routes>
         </CartProvider>
