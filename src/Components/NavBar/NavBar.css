@@ -20,13 +20,16 @@
     flex-wrap: wrap;
 }
 
-.active {
-    border-radius: 15px;
+.Option, .ActiveOption {
+    border-radius: 12px;
     background-color: rgb(205, 182, 193);
-    width: 110px;
-    height: 40px;
     margin: 10px;
+    height: 20px;
     font-weight: bolder;
+    text-align: center;
+    font-size: 14px;
+    text-decoration: none;
+    line-height: 20px;
+    padding: 10px;
 }
 
-/* No se por qué el active no lo lee, antes del NavLink estaba todo perfecto */

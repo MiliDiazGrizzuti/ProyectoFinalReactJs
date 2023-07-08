@@ -10,23 +10,31 @@ const ItemListContainer = () => {
     const { categoryId } = useParams()
 
     useEffect(() => {
-        const asyncFunc = categoryId ? getProductsByIdCategory : getProducts
+        const fetchData = async () => {
+            try {
+                let response;
 
-        asyncFunc(categoryId)
-            .then(response => {
-                setProducts(response)
-            })
-            .catch(error => {
-                console.error(error)
-            })
-    }, [categoryId])
+                if (categoryId) {
+                    response = await getProductsByIdCategory(categoryId);
+                } else {
+                    response = await getProducts();
+                }
+
+                setProducts(response);
+            } catch (error) {
+                console.error(error);
+            }
+        };
+
+        fetchData();
+    }, [categoryId]);
     
     return (
         <div className="itemlistcontainer">
             <h1 className="greeting">Bienvenidos a Pinkys Showroom</h1>
             <ItemList products={products} />
         </div>
-    )
+    );
 }
 
 export default ItemListContainer;
