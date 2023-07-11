@@ -12,7 +12,7 @@ const Checkout = () => {
 
     const { cart, total, clearCart } = useContext(CartContext)
 
-    const createOrder = async ({ name, phone, email}) => {
+    const createOrder = async ({ name, phone, email }) => {
         setLoading(true)
 
         try {
@@ -39,7 +39,7 @@ const Checkout = () => {
 
             docs.forEach(doc => {
                 const dataDoc = doc.data()
-                const stockDb = dataDoc.stockDb
+                const stockDb = dataDoc.stock
                 const productAddedToCart = cart.find(prod => prod.id === doc.id)
                 const prodQuantity = productAddedToCart?.quantity
 
@@ -58,6 +58,7 @@ const Checkout = () => {
                 const orderAdded = await addDoc(orderRef, objOrder)
 
                 setOrderId(orderAdded.id)
+
                 clearCart()
             } else {
                 console.error('Hay productos que están fuera de stock')
@@ -76,12 +77,17 @@ const Checkout = () => {
     }
 
     if(orderId) {
-        return <h1>El id de su compra es: {orderId}</h1>
+        return (
+        <div>
+            <h1>¡Muchas gracias por elegirnos!</h1>
+            <h2>El id de tu compra es: {orderId}</h2>
+        </div>
+        )
     }
 
     return (
         <div>
-            <h1>Checkout</h1>
+            <h2>Completá tus datos para finalizar la compra</h2>
             <CheckoutForm onConfirm={createOrder}/>
         </div>
     )

@@ -4,6 +4,7 @@ import ItemList from "../ItemList/ItemList";
 import { useParams } from 'react-router-dom';
 import { getDocs, collection, query, where } from "firebase/firestore";
 import { db } from "../../Services/Firebase/FirebaseConfig";
+// import { queries } from "@testing-library/react";
 
 const ItemListContainer = () => {
     const [products, setProducts] = useState ([])
@@ -14,25 +15,46 @@ const ItemListContainer = () => {
     useEffect(() => {
         setLoading(true)
 
-        const collectionRef = categoryId
-            ? query(collection(db, 'products'), where('category', '==', categoryId))
-            : collection(db, 'products')
+    //     const collectionRef = categoryId
+    //         ? query(collection(db, 'products'), where('categoryId', '==', categoryId)) : collection(db, 'products')
 
-        getDocs(collectionRef)
+    //     getDocs(collectionRef)
+    //         .then(response => {
+    //             const productsAdapted = response.docs.map(doc => {
+    //                 const data = doc.data()
+    //                 return { id: doc.id, ...data }
+    //             })
+    //             setProducts(productsAdapted)
+    //         })
+    //         .catch(error => {
+    //             console.log(error)
+    //         })
+    //         .finally(() => {
+    //             setLoading(false)
+    //         })
+    // }, [categoryId])
+
+
+        const collectionRef = collection(db, "products");
+        const q = categoryId ? query(collectionRef, where("categoryId", "==", categoryId)) : collectionRef;
+
+        getDocs(q)
             .then(response => {
-                const productsAdapted = response.docs.map(doc => {
-                    const data = doc.data()
-                    return { id: doc.id, ...data }
-                })
-                setProducts(productsAdapted)
-            })
-            .catch(error => {
-                console.log(error)
-            })
-            .finally(() => {
-                setLoading(false)
-            })
+                setProducts(
+                    response.docs.map((doc) => {
+                        return { ...doc.data(), id: doc.id }
+                    })
+                )
+        })
+        .catch(error => {
+            console.log(error)
+        })
+        .finally(() => {
+            setLoading(false)
+        })
     }, [categoryId])
+
+
 
     if (loading) {
         return <p>Cargando...</p>;

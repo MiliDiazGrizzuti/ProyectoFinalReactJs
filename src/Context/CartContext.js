@@ -1,17 +1,26 @@
-import { createContext, useState } from "react";
+import { createContext, useState, useEffect } from "react";
 
 export const CartContext = createContext({
-    cart:[]
+    cart:[],
+    total:0
 })
 
 export const CartProvider = ({ children }) => {
     const [cart, setCart] = useState([])
+    const [total, setTotal] = useState(0)
+
+    useEffect(() => {
+        updateTotal();
+      }, [cart]);
+    
+      console.log(cart);
 
     console.log(cart)
 
     const addItem = (item, quantity) => {
-        if(!IsInCart(item.id)) {
+        if(!isInCart(item.id)) {
             setCart(prev => [...prev, {...item, quantity}])
+            setTotal(prevTotal => prevTotal + item.price * quantity);
         } else {
             console.error("El producto ya fue agregado")
         }
@@ -26,12 +35,20 @@ export const CartProvider = ({ children }) => {
         setCart([])
     }
 
-    const IsInCart = (itemId) => {
+    const isInCart = (itemId) => {
         return cart.some(prod => prod.id === itemId)
+    }
+    
+    const updateTotal = () => {
+        const newTotal = cart.reduce(
+          (accumulator, product) => accumulator + product.price * product.quantity,
+          0
+        );
+        setTotal(newTotal);
     }
 
     return (
-        <CartContext.Provider value={{cart, addItem, removeItem, clearCart}}>
+        <CartContext.Provider value={{ cart, total, addItem, removeItem, clearCart }}>
             { children }
         </CartContext.Provider>
     )

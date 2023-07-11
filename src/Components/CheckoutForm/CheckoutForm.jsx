@@ -13,13 +13,15 @@ const CheckoutForm = ({ onConfirm }) => {
             name, phone, email
         }
 
+        console.log('Confirmar orden con datos:', userData)
+
         onConfirm(userData)
     }
 
     return (
         <div className='Container'>
             <form onSubmit={handleConfirm} className='Form'>
-                <label classname='Label'>
+                <label className='Label'>
                     Nombre
                     <input 
                         className='Input'
@@ -47,7 +49,7 @@ const CheckoutForm = ({ onConfirm }) => {
                     />
                 </label>
                 <div className='Label'>
-                    <button type='submit' className='Options'></button>
+                    <button type='submit' className='Button'>Finalizar</button>
                 </div>
             </form>
         </div>

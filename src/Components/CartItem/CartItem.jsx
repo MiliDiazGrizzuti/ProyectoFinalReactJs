@@ -14,7 +14,7 @@ const CartItem = ({ id, name, price, quantity }) => {
         <h4>{name}</h4>
         <p>Precio: ${price}</p>
         <p>Cantidad: {quantity}</p>
-        <button onClick={handleRemoveItem} className='Option'>Eliminar</button>
+        <button onClick={handleRemoveItem} className='Button'>Eliminar</button>
       </div>
     );
   };

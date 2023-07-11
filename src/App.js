@@ -11,6 +11,8 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { CartProvider } from './Context/CartContext';
 import Cart from './Components/Cart/Cart';
 import Checkout from './Components/Checkout/Checkout';
+import './Components/CheckoutForm/CheckoutForm.css';
+
 
 function App() {
   return (
