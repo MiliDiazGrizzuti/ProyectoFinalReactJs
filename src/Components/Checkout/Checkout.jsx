@@ -73,12 +73,12 @@ const Checkout = () => {
     }
 
     if(loading) {
-        return <h1>Se está generando su orden..</h1>
+        return <h1 className="checkout-loading">Se está generando su orden..</h1>
     }
 
     if(orderId) {
         return (
-        <div>
+        <div className="checkout-success">
             <h1>¡Muchas gracias por elegirnos!</h1>
             <h2>El id de tu compra es: {orderId}</h2>
         </div>
@@ -86,7 +86,7 @@ const Checkout = () => {
     }
 
     return (
-        <div>
+        <div className="checkout-container">
             <h2>Completá tus datos para finalizar la compra</h2>
             <CheckoutForm onConfirm={createOrder}/>
         </div>

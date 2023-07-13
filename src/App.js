@@ -6,6 +6,7 @@ import './Components/NavBar/NavBar.css';
 import './Components/ItemListContainer/ItemListContainer.css';
 import './Components/ItemList/ItemList.css';
 import './Components/Item/Item.css';
+import './Components/Checkout/Checkout.css';
 import ItemDetailContainer from './Components/ItemDetailContainer/ItemDetailContainer';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { CartProvider } from './Context/CartContext';

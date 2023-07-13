@@ -1,0 +1,20 @@
+.checkout-container {
+    margin: 20px;
+}
+  
+.checkout-loading {
+    margin: 20px;
+    font-size: 20px;
+}
+  
+.checkout-success {
+    margin: 20px;
+}
+  
+.checkout-success h1 {
+    color: rgb(174, 75, 75);
+}
+  
+.checkout-success h2 {
+    color: rgb(192, 104, 104);
+}
